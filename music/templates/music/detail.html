@@ -1,0 +1,40 @@
+<img src ='{{album.album_logo}}'>
+
+<img src ="/{{album.model_pic}}">
+
+
+<h1>{{album.album_title}}</h1>
+<h3>{{album.artist}}</h3>
+
+{% if error_message %}
+    <p><strong>{{ error_message }}</strong></p>
+{% endif %}
+
+<form action="{% url 'music:favorite' album.id %}" method="post">
+    <!-- the above goes to urls.py. In that it goes to the favorite url. album.id is the info that is sent to
+    the favorite url which inturn is sent to views.favorite. -->
+
+    {% csrf_token %}
+    {% for song in album.song_set.all %}   <!-- for each song in the album display a radio button before the song_title -->
+        <input type="radio" id="song{{forloop.counter}}" name="song" value="{{song.id}}">
+    <!-- radio button, forloop.counter auto increments for each song i.e numbers the 1st song as song1, 2nd as song2 and so on -->
+        <label for="song{{forloop.counter}}">
+            {{song.song_title}}       <!-- each song's song_title -->
+            {% if song.is_favorite %}
+                <scan> *</scan>
+    {% endif %}
+
+        </label><br>
+    {% endfor %}
+   <input type="submit" value="Favorite">
+</form>
+
+
+
+
+<!--<ul>
+    {% for song in album.song_set.all %}
+    <li>{{song.song_title}}-{{song.file_type}}</li>
+    {% endfor %}
+</ul>
+-->
