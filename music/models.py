@@ -11,6 +11,7 @@ class Album(models.Model):
     album_logo = models.CharField(max_length=1000)
     model_pic = models.ImageField(upload_to = 'static/pics', null= True)
 
+
     def __str__(self):
         return self.album_title + '-' + self.artist
 

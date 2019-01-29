@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}MusicApp{% endblock %}</title>
+</head>
+<body>
+{% load staticfiles %}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="{% static 'music/style.css' %}" />
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="#topNavBar">
+    <div class="container-fluid">
+
+
+        <!--header -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" style="background: white;">
+
+            </button>
+            <a class="navbar-brand" href="{% url 'music:index' %}">MusicApp</a>
+        </div>
+
+        <!-- items -->
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <ul class="nav navbar-nav">
+                <li class="">
+                    <a href="{%url 'music:index'%}" style="color:white">
+                        &nbsp;&nbsp;
+                        <i class="fas fa-book"></i>
+                        Albums
+                    </a>
+                </li>
+                <li class="">
+                    <a href="#" style="color:white">&nbsp;
+                        <i class="fas fa-music"></i>
+                        Music &nbsp;&nbsp;
+                    </a>
+                </li>
+            </ul>
+
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search">
+                <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            &nbsp; &nbsp;
+</div>
+            <div class="navbar-collapse collapse justify-content-end" id="navbarCollapse">
+            <ul class="navbar-nav ">
+                <li class="">
+                    <a href="#" style="color:white">&nbsp;
+                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                        Add Album &nbsp;&nbsp;
+
+                    </a>
+                </li>
+                <li class="">
+                    <a href="#" style="color:white">&nbsp;
+                        <i class="fa fa-power-off" aria-hidden="true"></i>
+                        Log Out &nbsp;&nbsp;
+                    </a>
+                </li>
+            </ul>
+            </div>
+        </a>
+
+    </div>
+</nav>
+
+{% block body %}
+{% endblock %}
+
+</body>
+</html>

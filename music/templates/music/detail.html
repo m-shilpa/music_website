@@ -1,4 +1,10 @@
-<img src ='{{album.album_logo}}'>
+{% extends 'music/base.html' %}
+{% block title %}Song Details{% endblock %}
+
+{% block body %}
+<br><br>
+<div style="margin:0px 0px 20px 20px;">  <!-- Margin left and bottom is 20px -->
+<!--<img src ='{{album.album_logo}}'> -->
 
 <img src ="/{{album.model_pic}}">
 
@@ -20,6 +26,7 @@
     <!-- radio button, forloop.counter auto increments for each song i.e numbers the 1st song as song1, 2nd as song2 and so on -->
         <label for="song{{forloop.counter}}">
             {{song.song_title}}       <!-- each song's song_title -->
+
             {% if song.is_favorite %}
                 <scan> *</scan>
     {% endif %}
@@ -28,7 +35,7 @@
     {% endfor %}
    <input type="submit" value="Favorite">
 </form>
-
+</div>
 
 
 
@@ -38,3 +45,5 @@
     {% endfor %}
 </ul>
 -->
+
+{% endblock %}
